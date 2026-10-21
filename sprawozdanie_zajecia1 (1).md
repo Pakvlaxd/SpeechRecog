@@ -2,8 +2,8 @@
 
 **Przedmiot:** Uczenie głębokie w systemach rozpoznawania i przetwarzania mowy
 **Zajęcia nr / temat:** 1 / Sekwencje i sygnał mowy: od fali dźwiękowej do reprezentacji
-**Autor / grupa:** [imię i nazwisko] / [grupa]
-**Data:** 21.10.2026
+**Autor / grupa:** Michał Pakuła / GL0.3
+**Data:** 15.10.2026
 
 ---
 
