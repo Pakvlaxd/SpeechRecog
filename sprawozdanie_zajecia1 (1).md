@@ -72,6 +72,8 @@ def ramki_wzor(n_probek, hop):
 | wyraz | 1,05 | 0,489 | 0,0801 | nie |
 | zdanie | 2,05 | 0,474 | 0,0769 | nie |
 
+<img width="507" height="326" alt="image" src="https://github.com/user-attachments/assets/0e30417a-2df2-4705-9cb1-91c5a600abe0" />
+
 ### 3.2 Wymiary reprezentacji (n_fft = 512, hop = 160)
 
 | Nagranie | Próbki | Log-mel | MFCC | T (wzór) |
@@ -82,17 +84,23 @@ def ramki_wzor(n_probek, hop):
 
 Zmierzona liczba ramek zgadza się ze wzorem `T = 1 + ⌊N / hop⌋`. Dla modelu sekwencyjnego macierz transponuje się do układu `[T, cechy]`, np. `(205, 64)` dla zdania.
 
+<img width="654" height="124" alt="image" src="https://github.com/user-attachments/assets/48ad639a-9ba8-4e2f-be16-95aea3eba20d" />
+
 ### 3.3 Porównanie nagrań
 
-![Porównanie log-mel i MFCC trzech nagrań](wykresy/02_porownanie_nagran.png)
+<img width="1508" height="711" alt="02_porownanie_nagran" src="https://github.com/user-attachments/assets/1cdba697-aac8-46aa-adaf-fa66ebb750fa" />
+
 
 *Rys. 1. Log-mel (góra, wspólna skala dB) i MFCC (dół; oś pionowa to numer współczynnika, nie częstotliwość).*
 
 Wykresy szczegółowe (przebieg + log-mel + MFCC) dla każdego nagrania:
 
-![Samogłoska](wykresy/01_samogloska_przebieg_logmel_mfcc.png)
-![Wyraz](wykresy/01_wyraz_przebieg_logmel_mfcc.png)
-![Zdanie](wykresy/01_zdanie_przebieg_logmel_mfcc.png)
+<img width="989" height="889" alt="01_samogloska_przebieg_logmel_mfcc" src="https://github.com/user-attachments/assets/59d91753-b330-44da-b5dc-02f7518519da" />
+
+<img width="989" height="889" alt="01_wyraz_przebieg_logmel_mfcc" src="https://github.com/user-attachments/assets/903df251-74f6-464a-bfaa-88cd16989fb6" />
+
+<img width="989" height="889" alt="01_zdanie_przebieg_logmel_mfcc" src="https://github.com/user-attachments/assets/ce2d9e1b-ea16-4dae-b8c9-78f5be456128" />
+
 
 *Rys. 2–4. Przebieg czasowy, log-mel i MFCC samogłoski, wyrazu i zdania.*
 
@@ -106,13 +114,16 @@ Wykresy szczegółowe (przebieg + log-mel + MFCC) dla każdego nagrania:
 
 \* Odchylenie standardowe widma mocy w dB (0,3–1,0 s, pasmo 100–1000 Hz) od jego wygładzonej obwiedni (filtr medianowy ok. 300 Hz); im większe, tym wyraźniejsze prążki harmoniczne na tle obwiedni.
 
-![Eksperyment A: log-mel](wykresy/03_ekspA_logmel_wszystkie.png)
+<img width="1508" height="1011" alt="03_ekspA_logmel_wszystkie" src="https://github.com/user-attachments/assets/0e100732-8993-4fdd-976f-a535cf984a35" />
+
 *Rys. 5. Log-mel trzech nagrań przy `n_fft` = 256 / 512 / 1024.*
 
-![Eksperyment A: STFT zdania](wykresy/04_ekspA_stft_wybrane.png)
+<img width="1508" height="461" alt="04_ekspA_stft_wybrane" src="https://github.com/user-attachments/assets/801e25c1-f573-4cdd-ab0a-fd388ce4ad5a" />
+
 *Rys. 6. STFT zdania (0–4 kHz) przy trzech długościach okna.*
 
-![Eksperyment A: MFCC zdania](wykresy/05_ekspA_mfcc_wybrane.png)
+<img width="1508" height="461" alt="05_ekspA_mfcc_wybrane" src="https://github.com/user-attachments/assets/a486167c-3ed6-4971-88bc-56d7376b0900" />
+
 *Rys. 7. MFCC zdania przy trzech wartościach `n_fft`.*
 
 ### 3.5 Eksperyment B: krok (`hop_length`)
@@ -125,10 +136,12 @@ Liczba ramek T (zmierzona = wzór `1 + ⌊N / hop⌋`):
 | wyraz | 210 | 105 | 53 |
 | zdanie | 410 | 205 | 103 |
 
-![Eksperyment B: log-mel](wykresy/06_ekspB_logmel_wszystkie.png)
+<img width="1508" height="1011" alt="06_ekspB_logmel_wszystkie" src="https://github.com/user-attachments/assets/f6fb0511-8f82-48ad-b3ba-58e877171433" />
+
 *Rys. 8. Log-mel trzech nagrań przy `hop_length` = 80 / 160 / 320 (okno stałe, 32 ms).*
 
-![Eksperyment B: zbliżenie](wykresy/07_ekspB_zblizenie.png)
+<img width="1508" height="461" alt="07_ekspB_zblizenie" src="https://github.com/user-attachments/assets/6f56e7b1-09b4-4dd0-94e4-6e832c2fd9df" />
+
 *Rys. 9. Zbliżenie fragmentu 0,3–0,6 s zdania.*
 
 ## 4. Analiza i interpretacja
