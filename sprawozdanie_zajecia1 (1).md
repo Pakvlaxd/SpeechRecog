@@ -71,8 +71,6 @@ def ramki_wzor(n_probek, hop):
 | wyraz | 1,05 | 0,489 | 0,0801 | nie |
 | zdanie | 2,05 | 0,474 | 0,0769 | nie |
 
-<img width="507" height="326" alt="image" src="https://github.com/user-attachments/assets/0e30417a-2df2-4705-9cb1-91c5a600abe0" />
-
 ### 3.2 Wymiary reprezentacji (n_fft = 512, hop = 160)
 
 | Nagranie | Próbki | Log-mel | MFCC | T (wzór) |
@@ -82,8 +80,6 @@ def ramki_wzor(n_probek, hop):
 | zdanie | 32 768 | (64, 205) | (13, 205) | 205 |
 
 Zmierzona liczba ramek zgadza się ze wzorem `T = 1 + ⌊N / hop⌋`. Dla modelu sekwencyjnego macierz transponuje się do układu `[T, cechy]`, np. `(205, 64)` dla zdania.
-
-<img width="654" height="124" alt="image" src="https://github.com/user-attachments/assets/48ad639a-9ba8-4e2f-be16-95aea3eba20d" />
 
 ### 3.3 Porównanie nagrań
 
