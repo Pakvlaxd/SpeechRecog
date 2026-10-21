@@ -16,7 +16,6 @@ Celem ćwiczenia było prześledzenie drogi od nagrania mowy do reprezentacji ce
 ### 2.1 Narzędzia i dane
 
 - Python, `librosa`, `numpy`, `matplotlib`; środowisko Google Colab.
-- Kod: notebook `cwiczenie1_sprawozdanie.ipynb` ([link do repozytorium](#)); pomiary użyte w analizie (f0, udział energii, kontrast harmonicznych, cechy czasowe) liczy sekcja 7 notebooka.
 - Trzy własne nagrania w formacie m4a, wczytane z konwersją do 16 kHz mono (`librosa.load(..., sr=16000, mono=True)`):
 
 | Nagranie | Plik | Czas [s] | Liczba próbek |
