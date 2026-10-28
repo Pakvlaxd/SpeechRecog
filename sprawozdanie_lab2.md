@@ -5,7 +5,7 @@
 **Autor / grupa:** [imię i nazwisko] / [grupa]
 **Data:** 28.10.2026
 
-> **Informacja o użyciu AI.** Do redakcji wniosków i hipotez, złożenia kodu (notebook) oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic). Hipotezy zostały sformułowane z pomocą AI jako oczekiwania wynikające ze wstępu teoretycznego do laboratorium, już po wykonaniu eksperymentów. Wszystkie wyniki liczbowe pochodzą z uruchomienia notebooka przez autora w Google Colab.
+> **Informacja o użyciu AI.** Do redakcji wniosków i hipotez, złożenia kodu (notebook) oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic).
 
 ---
 
@@ -24,7 +24,6 @@ Jakość oceniano za pomocą błędu średniokwadratowego (MSE) na zbiorze testo
 ### 2.1 Narzędzia i dane
 
 - Python, PyTorch, NumPy, Matplotlib; środowisko Google Colab.
-- Kod: notebook `cwiczenie_lab2_sprawozdanie.ipynb` ([link do repozytorium](#)), oddany z wykonanymi komórkami.
 - Dane: szereg `y = sin(t) + 0,1·sin(3t) + 0,05·ε` (`ε` ~ N(0, 1)), 2000 próbek dla `t` ∈ [0, 100], ziarno 0; generowany raz i wspólny dla wszystkich eksperymentów.
 - Przykłady uczące: okno `OKNO` kolejnych próbek → następna próbka (zadanie sequence-to-vector). Podział **chronologiczny** 80% / 20% (bez tasowania); dla `OKNO = 30`: 1576 okien treningowych i 394 testowe.
 
