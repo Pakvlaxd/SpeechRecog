@@ -27,7 +27,8 @@ Jakość oceniano za pomocą błędu średniokwadratowego (MSE) na zbiorze testo
 - Dane: szereg `y = sin(t) + 0,1·sin(3t) + 0,05·ε` (`ε` ~ N(0, 1)), 2000 próbek dla `t` ∈ [0, 100], ziarno 0; generowany raz i wspólny dla wszystkich eksperymentów.
 - Przykłady uczące: okno `OKNO` kolejnych próbek → następna próbka (zadanie sequence-to-vector). Podział **chronologiczny** 80% / 20% (bez tasowania); dla `OKNO = 30`: 1576 okien treningowych i 394 testowe.
 
-![Fragment szeregu](wykresy/lab2_00_szereg.png)
+<img width="838" height="317" alt="image" src="https://github.com/user-attachments/assets/edb5e411-7de8-4427-8883-fc8a32d5f604" />
+
 
 *Rys. 1. Fragment szeregu (200 próbek).*
 
@@ -107,7 +108,8 @@ Model bazowy: RNN, `hidden = 32`, `OKNO = 30`, 30 epok (notebook bez zmian).
 - Test MSE modelu bazowego: **[wpisz z wydruku komórki z baseline'em]** (z wykresu: ok. 0,0037 po 30 epokach).
 - Heurystyka „ostatnia próbka" (`OKNO = 30`): **0,00631**.
 
-![Baseline: krzywa uczenia](wykresy/lab2_01_baseline_krzywa.png)
+<img width="726" height="316" alt="image" src="https://github.com/user-attachments/assets/6a6fba13-5027-4aee-82ac-8b9c2c5ff69a" />
+
 
 *Rys. 2. Baseline: strata testowa i treningowa (skala logarytmiczna).*
 
@@ -121,7 +123,8 @@ Model bazowy: RNN, `hidden = 32`, `OKNO = 30`, 30 epok (notebook bez zmian).
 | GRU, hidden=32 | 3 393 | 0,00376 ± 0,00001 | 7,4 |
 | GRU, hidden=64 | 12 929 | 0,00375 ± 0,00008 | 11,1 |
 
-![Eksperyment A](wykresy/lab2_02_ekspA.png)
+<img width="702" height="393" alt="image" src="https://github.com/user-attachments/assets/8b89afe5-5191-4438-a9c7-a64a3a241109" />
+
 
 *Rys. 3. Eksperyment A: krzywe straty testowej (średnia z 3 ziaren).*
 
@@ -134,9 +137,11 @@ Model bazowy: RNN, `hidden = 32`, `OKNO = 30`, 30 epok (notebook bez zmian).
 | GRU, okno=60 | 3 393 | 0,00343 ± 0,00021 | 15,3 | 0,00633 |
 | GRU, okno=120 | 3 393 | 0,00344 ± 0,00019 | 27,2 | 0,00631 |
 
+<img width="726" height="394" alt="image" src="https://github.com/user-attachments/assets/2dd17fbd-9e96-480e-8173-ec693bf850ae" />
+
+
 Heurystykę liczono osobno dla każdego okna, bo zmienia się zbiór testowy (różna liczba okien).
 
-![Eksperyment B](wykresy/lab2_03_ekspB.png)
 
 *Rys. 4. Eksperyment B: krzywe straty testowej (średnia z 3 ziaren).*
 
@@ -153,7 +158,7 @@ Heurystykę liczono osobno dla każdego okna, bo zmienia się zbiór testowy (r�
 | LSTM, okno=120 | 4 513 | 0,00375 ± 0,00013 | 16,8 |
 | GRU, okno=120 | 3 393 | 0,00344 ± 0,00019 | 27,2 |
 
-![Eksperyment C](wykresy/lab2_04_ekspC.png)
+<img width="702" height="394" alt="image" src="https://github.com/user-attachments/assets/7bd8c4ee-9c44-4cfe-9be5-12709ef35483" />
 
 *Rys. 5. Eksperyment C: krzywe straty testowej (średnia z 3 ziaren).*
 
@@ -161,11 +166,11 @@ Heurystykę liczono osobno dla każdego okna, bo zmienia się zbiór testowy (r�
 
 Najniższy średni test MSE uzyskano dla **GRU, `hidden = 32`, `OKNO = 60`** (0,00343 ± 0,00021).
 
-![Strata treningowa i testowa](wykresy/lab2_05_najlepsza_train_test.png)
+<img width="726" height="355" alt="image" src="https://github.com/user-attachments/assets/3b38e8b8-1043-46b2-ac68-833ae8240fdb" />
 
 *Rys. 6. Najlepsza konfiguracja: strata treningowa i testowa.*
 
-![Predykcja](wykresy/lab2_06_najlepsza_predykcja.png)
+<img width="838" height="297" alt="image" src="https://github.com/user-attachments/assets/cffe602b-77ae-4547-b4a8-38d5749bb29c" />
 
 *Rys. 7. Najlepsza konfiguracja: predykcja na tle rzeczywistego przebiegu (200 punktów testowych, model z ziarna 2).*
 
