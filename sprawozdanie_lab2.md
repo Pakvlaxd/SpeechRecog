@@ -5,7 +5,7 @@
 **Autor / grupa:** Michał Pakuła / GL5.03
 **Data:** 28.10.2026
 
-Do redakcji wniosków i hipotez, złożenia kodu (notebook) oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic).
+Do analizy wniosków i hipotez, złożenia kodu (notebook) oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic).
 
 ---
 
