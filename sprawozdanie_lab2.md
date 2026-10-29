@@ -2,10 +2,10 @@
 
 **Przedmiot:** Uczenie głębokie w systemach rozpoznawania i przetwarzania mowy
 **Zajęcia nr / temat:** 2 / Sieci rekurencyjne: budowa i uczenie
-**Autor / grupa:** [imię i nazwisko] / [grupa]
+**Autor / grupa:** Michał Pakuła / GL5.03
 **Data:** 28.10.2026
 
-> **Informacja o użyciu AI.** Do redakcji wniosków i hipotez, złożenia kodu (notebook) oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic).
+Do redakcji wniosków i hipotez, złożenia kodu (notebook) oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic).
 
 ---
 
