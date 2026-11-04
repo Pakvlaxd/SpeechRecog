@@ -2,7 +2,7 @@
 
 **Przedmiot:** Uczenie głębokie w systemach rozpoznawania i przetwarzania mowy
 **Zajęcia nr / temat:** 3 / Prognozowanie szeregów czasowych: prognoza wielokrokowa i porównanie z baseline'ami
-**Autor / grupa:** Michał Pakuła / [grupa] GL.03
+**Autor / grupa:** Michał Pakuła / GL.03
 **Data:** 29.10.2026
 
 > **Informacja o użyciu AI.** Do redakcji analizy, interpretacji i wniosków, przygotowania pomocniczej komórki kodu składającej tabele wyników oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI
