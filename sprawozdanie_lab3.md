@@ -2,10 +2,10 @@
 
 **Przedmiot:** Uczenie głębokie w systemach rozpoznawania i przetwarzania mowy
 **Zajęcia nr / temat:** 3 / Prognozowanie szeregów czasowych: prognoza wielokrokowa i porównanie z baseline'ami
-**Autor / grupa:** [imię i nazwisko] / [grupa]
-**Data:** 04.11.2026
+**Autor / grupa:** Michał Pakuła / [grupa] GL.03
+**Data:** 29.10.2026
 
-> **Informacja o użyciu AI.** Do redakcji analizy, interpretacji i wniosków, przygotowania pomocniczej komórki kodu składającej tabele wyników oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic). Notebook laboratoryjny pochodzi od prowadzących. Wszystkie wyniki liczbowe i wykresy pochodzą z uruchomienia notebooka przez autora w Google Colab.
+> **Informacja o użyciu AI.** Do redakcji analizy, interpretacji i wniosków, przygotowania pomocniczej komórki kodu składającej tabele wyników oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI
 
 ---
 
@@ -24,7 +24,8 @@ Celem ćwiczenia było sprawdzenie, czy model GRU wnosi coś ponad proste reguł
 - Standaryzacja `z = (y − μ) / σ` ze statystykami wyłącznie z części treningowej: μ = 106,96, σ = 12,00. Metryki liczono po powrocie do oryginalnej skali.
 - Okna: `OKNO = 28` dni → następny dzień; kształty wejść `(672, 28, 1)` dla treningu oraz `(150, 28, 1)` dla walidacji i testu.
 
-![Podział chronologiczny](wykresy/lab3_01_podzial.png)
+<img width="938" height="340" alt="image" src="https://github.com/user-attachments/assets/50de2c06-cb4e-4bbe-bf31-fa806d02529a" />
+
 
 *Rys. 1. Dzienna sprzedaż i podział chronologiczny na trening, walidację i test.*
 
@@ -63,7 +64,8 @@ Okna `OKNO` ∈ {3, 7, 28}, każde na 2 ziarnach (`torch.manual_seed(0)` i `(1)`
 
 Model bazowy (GRU, `hidden = 32`, `OKNO = 28`): **najlepsza epoka: 36** (numeracja od 0, z 40), strata walidacyjna w tej epoce **0,0822** (skala standaryzowana), 3 393 parametry.
 
-![Krzywe uczenia](wykresy/lab3_02_krzywe_uczenia.png)
+<img width="792" height="366" alt="image" src="https://github.com/user-attachments/assets/571fc331-b40f-406e-8078-ec54b106bed1" />
+
 
 *Rys. 2. Krzywe uczenia modelu bazowego: strata treningowa i walidacyjna (skala logarytmiczna).*
 
@@ -77,7 +79,8 @@ Model bazowy (GRU, `hidden = 32`, `OKNO = 28`): **najlepsza epoka: 36** (numerac
 | średnia ruchoma | 5,80 | 6,84 |
 | granica szumu | 2,39 | 3,00 |
 
-![Prognoza jednokrokowa](wykresy/lab3_03_prognoza_jednokrokowa.png)
+<img width="908" height="297" alt="image" src="https://github.com/user-attachments/assets/e162c9bd-47c1-48f0-8001-71a07b3dd13b" />
+
 
 *Rys. 3. Prognoza jednokrokowa GRU na zbiorze testowym (150 dni) na tle wartości rzeczywistych.*
 
@@ -91,7 +94,8 @@ Model bazowy (GRU, `hidden = 32`, `OKNO = 28`): **najlepsza epoka: 36** (numerac
 
 Liczba punktów startowych: 10.
 
-![MAE w funkcji horyzontu](wykresy/lab3_04_mae_horyzont.png)
+<img width="716" height="415" alt="image" src="https://github.com/user-attachments/assets/00f952b6-caa1-4ed9-a100-befe49d0a397" />
+
 
 *Rys. 4. MAE w funkcji horyzontu h (uśrednione po 10 punktach startowych).*
 
@@ -113,7 +117,8 @@ Liczba punktów startowych: 10.
 
 ### 3.5 Prognoza poza końcem danych (ilustracja)
 
-![Prognoza poza końcem danych](wykresy/lab3_05_prognoza_poza_danymi.png)
+<img width="908" height="297" alt="image" src="https://github.com/user-attachments/assets/472e45b7-5466-4b46-ac04-bde77a85c20c" />
+
 
 *Rys. 5. Prognoza 14 dni poza końcem danych (dni 1000–1013). Tej prognozy nie można ocenić, bo tych dni nie ma w danych; ocenę zawiera sekcja 3.3.*
 
