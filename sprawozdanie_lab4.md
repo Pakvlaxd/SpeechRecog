@@ -2,10 +2,10 @@
 
 **Przedmiot:** Uczenie głębokie w systemach rozpoznawania i przetwarzania mowy
 **Zajęcia nr / temat:** 4 / Obsługa długich sekwencji: SimpleRNN, LSTM, GRU i Conv1D
-**Autor / grupa:** [imię i nazwisko] / [grupa]
-**Data:** 11.11.2026
+**Autor / grupa:** Michał Pakuła / GL0.3
+**Data:** 04.11.2026
 
-> **Informacja o użyciu AI.** Do redakcji analizy i wniosków, złożenia kodu (notebook) oraz przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic). Wszystkie wyniki i wykresy pochodzą z uruchomienia notebooka przez autora w Google Colab.
+> **Informacja o użyciu AI.** Do redakcji analizy i wniosków, złożenia kodu (notebook) oraz przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic).
 
 ---
 
@@ -35,7 +35,7 @@ Zbiory generowano **raz na długość** i przekazano te same dane wszystkim mode
 - **Conv1D:** 3 warstwy, 64 kanały, jądro 3, krok 1, dylatacje [1, 2, 4], symetryczne dopełnienie (każda warstwa zachowuje długość), ReLU, uśrednianie mapy cech w czasie + warstwa liniowa.
 - **Trening (jednakowy dla wszystkich):** MSE, Adam, `lr = 5e-3`, 30 epok, `batch = 128`, przycinanie gradientu 1,0.
 - **Ziarna:** dane ze stałym ziarnem generatora (0), modele trenowano na 3 ziarnach inicjalizacji i tasowania (0, 1, 2); podano średnią ± odchylenie.
-- **Urządzenie:** [wpisz: GPU (np. T4) / CPU]. Czas mierzono wyłącznie dla uczenia (z synchronizacją CUDA), w sekundach.
+- **Urządzenie:** GPU T4. Czas mierzono wyłącznie dla uczenia (z synchronizacją CUDA), w sekundach.
 - Ustawień nie dobierano na podstawie wyników, więc osobnej walidacji nie wydzielano.
 
 Kod: notebook `cwiczenie_lab4_sprawozdanie.ipynb` ([link do repozytorium](#)), oddany z wykonanymi komórkami.
