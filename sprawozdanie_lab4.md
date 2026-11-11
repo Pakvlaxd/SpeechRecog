@@ -66,7 +66,8 @@ Znacznik w kroku `t` i wskazywana próbka w kroku `t − 8` leżą w odległośc
 | GRU | 100 | 3 489 | 0,1846 ± 0,0024 | 2,5 |
 | Conv1D [1,2,4] | 100 | 25 217 | 0,1833 ± 0,0006 | 2,6 |
 
-![Test MSE w funkcji L](wykresy/lab4_01_mse_vs_L.png)
+<img width="622" height="433" alt="image" src="https://github.com/user-attachments/assets/27c703f8-f5a4-434f-bc4b-2bcd9e97c368" />
+
 
 *Rys. 1. Test MSE czterech modeli dla L = 50 i L = 100 (średnia ± odch. z 3 ziaren) na tle predykcji stałej.*
 
@@ -90,7 +91,8 @@ Model: SimpleRNN, L = 100, przykład testowy nr 739 (ziarno 0).
 
 Średni błąd kwadratowy tego modelu na teście wynosi 0,1865.
 
-![Przykład z dużym błędem](wykresy/lab4_02_przyklad_bledu.png)
+<img width="826" height="316" alt="image" src="https://github.com/user-attachments/assets/bdd08058-0b9d-461d-b665-0c0ce3fa84ca" />
+
 
 *Rys. 2. Przykład testowy z dużym błędem (SimpleRNN, L = 100): wartości, znaczniki (czerwone linie) i wskazywane próbki (zielone punkty).*
 
