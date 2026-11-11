@@ -38,7 +38,7 @@ Zbiory generowano **raz na długość** i przekazano te same dane wszystkim mode
 - **Urządzenie:** GPU T4. Czas mierzono wyłącznie dla uczenia (z synchronizacją CUDA), w sekundach.
 - Ustawień nie dobierano na podstawie wyników, więc osobnej walidacji nie wydzielano.
 
-Kod: notebook `cwiczenie_lab4_sprawozdanie.ipynb` ([link do repozytorium](#)), oddany z wykonanymi komórkami.
+Kod: notebook `cwiczenie_lab4_sprawozdanie.ipynb`, oddany z wykonanymi komórkami.
 
 ### 2.3 Pole recepcyjne
 
