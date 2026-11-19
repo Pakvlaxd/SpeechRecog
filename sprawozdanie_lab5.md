@@ -2,10 +2,9 @@
 
 **Przedmiot:** Uczenie głębokie w systemach rozpoznawania i przetwarzania mowy
 **Zajęcia nr / temat:** 5 / Wprowadzenie do NLP: reprezentacje tekstu i intuicja uwagi
-**Autor / grupa:** [imię i nazwisko] / [grupa]
+**Autor / grupa:** Michał Pakuła / GL0.3
 **Data:** 19.11.2026
 
-> **Informacja o użyciu AI.** Do redakcji analizy i wniosków, przygotowania pomocniczej komórki kodu (pomiar tokenów na słowo dla różnych rozmiarów słownika BPE) oraz do przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic). Notebook laboratoryjny pochodzi od prowadzących. Wyniki i wykresy pochodzą z uruchomienia notebooka przez autora w Google Colab.
 
 ---
 
@@ -15,7 +14,7 @@ Prześledzenie drogi od tekstu do reprezentacji liczbowych na małym korpusie po
 
 ## 2. Metoda i implementacja
 
-- Narzędzia: Python, `tokenizers` (BPE), `gensim` (Word2Vec), `scikit-learn` (PCA), NumPy, Matplotlib; Google Colab. Kod: notebook `cwiczenie_lab_05.ipynb` ([link do repozytorium](#)) z jedną dodaną komórką, oddany z wykonanymi komórkami.
+- Narzędzia: Python, `tokenizers` (BPE), `gensim` (Word2Vec), `scikit-learn` (PCA), NumPy, Matplotlib; Google Colab. Kod: notebook `cwiczenie_lab_05.ipynb` z jedną dodaną komórką, oddany z wykonanymi komórkami.
 - **Korpus:** 20 zdań po polsku o dwóch tematach (uczenie maszynowe i zwierzęta), powielone 5 razy (100 zdań) dla stabilniejszego treningu.
 - **BPE:** `models.BPE` z `unk_token='[UNK]'`, pretokenizer `Whitespace`, `BpeTrainer(vocab_size=300, min_frequency=1)`; w eksperymencie z rozmiarem słownika limity 100, 200, 300, 400 i 500.
 - **Word2Vec:** Skip-gram (`sg=1`), `vector_size=50`, `window=3`, `min_count=2`, 200 epok, `seed=0`, `workers=1`; słowa zapisane małymi literami, bez kropek.
@@ -61,7 +60,8 @@ for vs in [100, 200, 300, 400, 500]:
 
 Dla limitu 500 tokenizer wyczerpał możliwe scalenia i uzyskał 424 wpisy, więc na wykresie użyto faktycznego rozmiaru.
 
-![Tokeny na słowo a rozmiar słownika](wykresy/lab5_01_tokeny_na_slowo.png)
+<img width="567" height="438" alt="image" src="https://github.com/user-attachments/assets/033948d2-d781-433b-9ee8-13a7a6e826a9" />
+
 
 *Rys. 1. Średnia liczba tokenów na słowo w zależności od faktycznego rozmiaru słownika BPE.*
 
@@ -69,19 +69,21 @@ Dla limitu 500 tokenizer wyczerpał możliwe scalenia i uzyskał 424 wpisy, wię
 
 | Słowo | Najbliżsi sąsiedzi (cosinus) |
 |---|---|
-| [słowo 1] | [sąsiad 1 (0,xx), sąsiad 2 (0,xx), sąsiad 3 (0,xx)] |
-| [słowo 2] | [...] |
-| [słowo 3] | [...] |
+| mowy | rozpoznawanie (0,94), synteza (0,92), zamienia (0,91) |
+| sieć | rekurencyjna (0,90), neuronowa (0,89), sekwencje (0,88) |
+| rekurencyjna | kolejne (0,90), mają (0,89), podobne (0,89) |
 
 ### 3.4 Rzut PCA embeddingów
 
-![Rzut PCA](wykresy/lab5_02_pca.png)
+<img width="733" height="528" alt="image" src="https://github.com/user-attachments/assets/b5df04c6-1251-4962-bc9e-ed51df4df75e" />
+
 
 *Rys. 2. Embeddingi word2vec wybranych słów (rzut PCA 2D).*
 
 ### 3.5 Mechanizm uwagi (dodatkowo)
 
-![Wagi uwagi](wykresy/lab5_03_uwaga.png)
+<img width="708" height="297" alt="image" src="https://github.com/user-attachments/assets/d919f86a-35b8-434a-9f31-ca2022f9a1c8" />
+
 
 *Rys. 3. Wagi uwagi dla zapytania „znaczenie” względem słów zdania „mechanizm uwagi waży znaczenie słów w zdaniu”.*
 
@@ -97,7 +99,7 @@ Tokenizer uczy się na korpusie, więc granice tokenów wynikają z częstości 
 
 ### 4.3 Najbliżsi sąsiedzi
 
-[Wpisz 2–4 zdania: czy sąsiedzi mają sens tematyczny, czy wynikają z częstych połączeń słów w zdaniach korpusu (sprawdź to w tekście korpusu), i przypomnij, że korpus jest mały (20 zdań powielonych 5 razy), więc wyniki są poglądowe.]
+Najbliżsi sąsiedzi słów „mowy” i „sieć” mają sens tematyczny: „rozpoznawanie” i „synteza” to typowe połączenia „rozpoznawanie mowy” i „synteza mowy”, a „rekurencyjna” i „neuronowa” to określenia „sieci”. Wynika to jednak głównie ze współwystępowania w tych samych zdaniach korpusu, a nie z podobieństwa znaczeń. Potwierdza to „zamienia” przy „mowy” (ze zdania „Rozpoznawanie mowy zamienia sygnał dźwiękowy na tekst”) oraz „sekwencje” przy „sieć”. Dla słowa „słowa” sąsiedzi („kolejne”, „mają”, „podobne”) pochodzą z fraz „przewiduje kolejne słowa” i „podobne słowa mają podobne wektory”, więc są to raczej sąsiedzi składniowi niż tematyczni. Wszystkie wartości cosinusa są wysokie (0,88–0,94), nawet dla słabych powiązań, co wynika z bardzo małego korpusu (20 zdań powielonych 5 razy) i dużej liczby epok. Wyniki mają więc charakter poglądowy.
 
 ### 4.4 Rzut PCA
 
@@ -116,4 +118,4 @@ Najwyższą wagę dla zapytania „znaczenie” ma samo słowo „znaczenie” (
 
 ## 5. Wnioski
 
-BPE wydziela wspólne fragmenty form tego samego wyrazu (`pis` w „pisać” i „napisany”), ale granice tokenów nie odpowiadają morfemom i nie obejmują przemian tematu, jak w „piszę”. Rozmiar słownika BPE silnie wpływa na długość tokenizacji: średnia liczba tokenów na słowo spada z 3,86 (100 wpisów) do 1,00 (424 wpisy), kosztem większej tablicy osadzeń, a wartość 1,00 dotyczy próbki treningowej. Embeddingi word2vec na małym korpusie grupują słowa o wspólnym kontekście (np. słowa związane z mową leżą obok siebie), ale temat zwierząt nie jest wyraźnie wydzielony, a [wpisz wniosek z sąsiadów]. Mechanizm uwagi daje wagi sumujące się do 1 i ważoną sumę wektorów, jednak przy statycznych osadzeniach z małego korpusu wagi są dość wyrównane. Wnioski dotyczą jednego małego korpusu; kierunki dalszej pracy to większy korpus, ocena na tekście spoza korpusu i porównanie z tokenizerem HerBERT.
+BPE wydziela wspólne fragmenty form tego samego wyrazu (pis w „pisać” i „napisany”), ale granice tokenów nie odpowiadają morfemom i nie obejmują przemian tematu, jak w „piszę”. Rozmiar słownika BPE silnie wpływa na długość tokenizacji: średnia liczba tokenów na słowo spada z 3,86 (100 wpisów) do 1,00 (424 wpisy), kosztem większej tablicy osadzeń, a wartość 1,00 dotyczy próbki treningowej. Embeddingi word2vec na małym korpusie grupują słowa o wspólnym kontekście (np. słowa związane z mową leżą obok siebie na rzucie PCA, a najbliżsi sąsiedzi „mowy” i „sieć” to ich typowe połączenia), ale sąsiedztwo wynika głównie ze współwystępowania w zdaniach korpusu, a nie z podobieństwa znaczeń, a temat zwierząt nie jest wyraźnie wydzielony. Mechanizm uwagi daje wagi sumujące się do 1 i ważoną sumę wektorów, jednak przy statycznych osadzeniach z małego korpusu wagi są dość wyrównane. Wnioski dotyczą jednego małego korpusu; kierunki dalszej pracy to większy korpus, ocena na tekście spoza korpusu i porównanie z tokenizerem HerBERT.
