@@ -3,7 +3,7 @@
 **Przedmiot:** Uczenie głębokie w systemach rozpoznawania i przetwarzania mowy
 **Zajęcia nr / temat:** 5 / Wprowadzenie do NLP: reprezentacje tekstu i intuicja uwagi
 **Autor / grupa:** Michał Pakuła / GL0.3
-**Data:** 19.11.2026
+**Data:** 12.11.2026
 
 
 ---
