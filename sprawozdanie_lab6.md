@@ -2,10 +2,10 @@
 
 **Przedmiot:** Uczenie głębokie w systemach rozpoznawania i przetwarzania mowy
 **Zajęcia nr / temat:** 6 / Projekt generacyjny, część 1: przygotowanie danych dla Char-RNN
-**Autor / grupa:** [imię i nazwisko] / [grupa]
+**Autor / grupa:** Michał Pakuła / GL0.3
 **Data:** 26.11.2026
 
-> **Informacja o użyciu AI.** Do redakcji analizy i wniosków, złożenia kodu (notebook) oraz przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic). Wszystkie wyniki i wykresy pochodzą z uruchomienia notebooka przez autora w Google Colab.
+> **Informacja o użyciu AI.** Do redakcji analizy i wniosków, złożenia kodu (notebook) oraz przygotowania układu i formatowania sprawozdania użyto asystenta AI (Claude, Anthropic)
 
 ---
 
@@ -90,13 +90,15 @@ Ten sam tekst, podział i krok okna (1); `SEKW` ∈ {20, 50, 100, 200}:
 | 100 | 618 011 | 77 164 | 77 164 | 61 801 100 |
 | 200 | 617 911 | 77 064 | 77 064 | 123 582 200 |
 
-![Liczba par a SEKW](wykresy/lab6_01_pary_vs_sekw.png)
+<img width="640" height="433" alt="image" src="https://github.com/user-attachments/assets/2e854617-7e10-4544-b9b2-ecac59b17edc" />
+
 
 *Rys. 1. Liczba par wejście–cel w zależności od SEKW dla zbiorów treningowego, walidacyjnego i testowego (skala logarytmiczna; krzywe walidacji i testu pokrywają się).*
 
 ### 3.5 Częstość znaków w treningu
 
-![Najczęstsze znaki](wykresy/lab6_02_najczestsze_znaki.png)
+<img width="791" height="374" alt="image" src="https://github.com/user-attachments/assets/6f4c779a-8c56-4d46-9411-7f41d3449ccc" />
+
 
 *Rys. 2. 20 najczęstszych znaków w zbiorze treningowym (␣ oznacza spację).*
 
@@ -104,7 +106,8 @@ Ten sam tekst, podział i krok okna (1); `SEKW` ∈ {20, 50, 100, 200}:
 
 Najczęstsze słowa w treningu: *i* (2 849), *się* (2 560), *w* (1 984), *nie* (1 712), *na* (1 698), *z* (1 475), *do* (1 210), *że* (1 074), *a* (1 061), *to* (830), *pan* (691), *wokulski* (670), *za* (597), *o* (573), *ale* (538). Średnia długość słowa: 5,27 znaku, mediana 5.
 
-![Rozkład długości słów](wykresy/lab6_03_dlugosc_slow.png)
+<img width="635" height="394" alt="image" src="https://github.com/user-attachments/assets/f528a999-9eba-45b5-971d-436be3e19b35" />
+
 
 *Rys. 3. Rozkład długości słów w zbiorze treningowym.*
 
